@@ -21,8 +21,8 @@ export class PlayerSelectorComponent implements OnInit {
   constructor(private marvel: MarvelService) { }
 
   ngOnInit(): void {
-    this.name = 'A-Bomb (HAS)';
-    this.suggestionsName = ['A-Bomb (HAS)', '3-D Man'];
+    this.name = '';
+    this.suggestionsName = ['A-Bomb (HAS)', '3-D Man', 'Agent Brand', 'Agent X (Nijo)', 'Agent Zero'];
   }
 
   savePlayer() {
@@ -32,6 +32,11 @@ export class PlayerSelectorComponent implements OnInit {
 
     if (name === '') {
       this.errorCharacter = 'Please, enter a Marvel character name';
+      return false;
+    }
+
+    if (this.players.some(player => player.name.toLowerCase() === this.name.toLowerCase())) {
+      this.errorCharacter = 'This character name is already in use';
       return false;
     }
 
@@ -63,4 +68,8 @@ export class PlayerSelectorComponent implements OnInit {
     this.name = '';
   }
 
+  useName(name: string) {
+    this.name = name;
+    this.savePlayer();
+  }
 }

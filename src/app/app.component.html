@@ -1,31 +1,39 @@
-<div>
-  <h1>Tic-Tac-Toe</h1>
-
-  <div *ngIf="currentStep === 'enterPlayers'">
-    <app-player-selector [players]="players" (addPlayer)="addPlayer($event)"></app-player-selector>
-  </div>
-
-  <div *ngIf="currentStep === 'gameStarted'">
-    <div>
-      <button (click)="resetScores()">Reset Scores</button>
+<div class="app">
+  <div class="container">
+    <div class="logo">
+      <h1>Tic-Tac-Toe</h1>
     </div>
 
-    <div class="players">
-      <div class="player" *ngFor="let player of players; let i = index;">
-        <div>
-          <img [src]="player.picture" alt="{{ player.name }}" title="{{ player.name }}" height="50">
-        </div>
+    <div *ngIf="currentStep === 'enterPlayers'">
+      <app-player-selector [players]="players" (addPlayer)="addPlayer($event)"></app-player-selector>
+    </div>
 
-        <div>
-          {{ currentPlayer === player ? 'Your turn' : '' }}
-          <br>
-          {{ player.name }}<br>
-          {{ player.symbol }}<br>
-          {{ player.score }}
+    <div *ngIf="currentStep === 'gameStarted'">
+      <div>
+        <app-button (click)="resetScores()" value="Reset Scores"></app-button>
+      </div>
+
+      <div class="players">
+        <div class="player" *ngFor="let player of players; let i = index;">
+          <div>
+            <img [src]="player.picture" alt="{{ player.name }}" title="{{ player.name }}" height="50">
+          </div>
+
+          <div>
+            {{ currentPlayer === player ? 'Your turn' : '' }}
+            <br>
+            {{ player.name }}<br>
+            {{ player.symbol }}<br>
+            {{ player.score }}
+          </div>
         </div>
       </div>
+
+      <app-tic-tac-toe #ticTacToe [currentPlayer]="currentPlayer" (nextPlayer)="nextPlayer()" (tie)="tie()" (win)="win($event)"></app-tic-tac-toe>
     </div>
 
-    <app-tic-tac-toe #ticTacToe [currentPlayer]="currentPlayer" (nextPlayer)="nextPlayer()" (tie)="tie()" (win)="win($event)"></app-tic-tac-toe>
+    <div *ngIf="gameOverType" class="game-over-container" (click)="playAgain()">
+      <app-game-over-page [type]="gameOverType" [winner]="lastWinner"></app-game-over-page>
+    </div>
   </div>
 </div>

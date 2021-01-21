@@ -16,6 +16,14 @@
       name="name"
       [(ngModel)]="name"
     >
+
+    <br>
+  
+    <b>Suggestions:</b>
+    <button type="button" *ngFor="let name of suggestionsName; let i = index;" (click)="useName(name)">
+      {{ name }}
+    </button>
+
     <br>
     <div *ngIf="searchingCharacter">
       Searching Marvel character
@@ -25,6 +33,6 @@
       {{ errorCharacter }}
     </div>
 
-    <input type="submit" value="Save" [disabled]="searchingCharacter">
+    <app-button type="submit" value="Save" [disabled]="searchingCharacter"></app-button>
   </form>
 </div>

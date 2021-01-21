@@ -17,9 +17,12 @@ export class AppComponent implements OnInit {
   title = 'tic-tac-toe-marvel';
 
   players: Player[];
-  currentPlayer: Player
+  currentPlayer: Player;
+  lastWinner: Player;
 
   currentStep: string;
+
+  gameOverType: string;
 
   constructor() { }
 
@@ -59,13 +62,19 @@ export class AppComponent implements OnInit {
     }
   }
 
-  tie() {
+  playAgain() {
+    this.gameOverType = '';
     this.ticTacToe.reset();
   }
 
+  tie() {
+    this.gameOverType = 'tie';
+  }
+
   win(winner: Player) {
+    this.gameOverType = 'win';
+    this.lastWinner = winner;
     winner.score++;
-    this.ticTacToe.reset();
   }
 
   resetScores() {

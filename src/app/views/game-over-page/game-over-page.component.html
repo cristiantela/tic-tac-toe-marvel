@@ -1,0 +1,27 @@
+<div class="game-over-page">
+  <div>
+    <div *ngIf="type === 'win'">
+      <div class="title">Winner</div>
+
+      <img [src]="winner.picture" [alt]="winner.name" [title]="winner.name" class="picture">
+
+      <br>
+
+      <div class="name">
+        {{ winner.name }}
+      </div>
+    </div>
+
+    <div *ngIf="type === 'tie'">
+      <div class="title">Tied</div>
+
+      <div class="name">
+        No winner
+      </div>
+    </div>
+
+    <br>
+
+    Click anywhere to play again
+  </div>
+</div>

@@ -1,22 +1,49 @@
+$width: 300px;
+
+.tic-tac-toe {
+  margin: 0 auto;
+  width: $width;
+}
+
 .row {
-  height: 50px;
   display: flex;
+  height: ($width / 3);
 }
 
 .row .block {
-  width: 50px;
-  height: 50px;
+  width: ($width / 3);
+  height: ($width / 3);
+  font-size: ($width / 3);
   display: inline-block;
   border-width: 0;
   border-style: solid;
-  border-color: black;
+  border-color: #7f8c8d;
   cursor: pointer;
   user-select: none;
   box-sizing: border-box;
+  position: relative;
 }
 
 .row .block.drawn {
   cursor: default;
+}
+
+@media only screen and (min-width: 600px) {
+  $width: 400px;
+
+  .tic-tac-toe {
+    width: $width;
+  }
+
+  .row {
+    height: ($width / 3);
+  }
+
+  .row .block {
+    width: ($width / 3);
+    height: ($width / 3);
+    font-size: ($width / 3);
+  }
 }
 
 .row:not(:first-child) .block {
@@ -25,4 +52,38 @@
 
 .row .block:not(:first-child) {
   border-left-width: 1px;
+}
+
+.cross, .ball {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.cross .line {
+  position: absolute;
+  width: 0.8em;
+  height: 0.1em;
+  background-color: black;
+  transform: translate(0.1em, 0.45em) rotate(45deg);
+}
+
+.cross .line:nth-child(2) {
+  transform: translate(0.1em, 0.45em) rotate(-45deg);
+}
+
+.ball {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.ball .circle {
+  position: absolute;
+  width: 0.65em;
+  height: 0.65em;
+  border: 0.1em solid black;
+  box-sizing: border-box;
+  border-radius: 50%;
+  transform: translate(0.175em, 0.175em);
 }

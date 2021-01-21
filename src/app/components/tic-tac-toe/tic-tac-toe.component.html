@@ -1,7 +1,14 @@
-<div>
+<div class="tic-tac-toe">
   <div class="row" *ngFor="let row of grid; let y = index;">
     <div class="block" *ngFor="let column of row; let x = index;" (click)="drawInBlock(y, x)" [class.drawn]="column">
-      {{ column ? column.symbol : null }}
+      <div *ngIf="column && column.symbol === 'X'" class="cross">
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+
+      <div *ngIf="column && column.symbol === 'O'" class="ball">
+        <div class="circle"></div>
+      </div>
     </div>
   </div>
 </div>

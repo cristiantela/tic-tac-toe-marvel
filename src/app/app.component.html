@@ -31,5 +31,9 @@
 
       <app-tic-tac-toe #ticTacToe [currentPlayer]="currentPlayer" (nextPlayer)="nextPlayer()" (tie)="tie()" (win)="win($event)"></app-tic-tac-toe>
     </div>
+
+    <div *ngIf="gameOverType" class="game-over-container" (click)="playAgain()">
+      <app-game-over-page [type]="gameOverType" [winner]="lastWinner"></app-game-over-page>
+    </div>
   </div>
 </div>

@@ -1,3 +1,5 @@
+@use "sass:color";
+
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
 :host {
@@ -17,6 +19,17 @@
 
 .logo {
   text-align: center;
+}
+
+.game-over-container {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: rgba(255,255,255, 0.8);
+  left: 0;
+  top: 0;
+  position: fixed;
+  display: flex;
+  user-select: none;
 }
 
 .players {

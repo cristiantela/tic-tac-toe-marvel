@@ -16,6 +16,14 @@
       name="name"
       [(ngModel)]="name"
     >
+
+    <br>
+  
+    <b>Suggestions:</b>
+    <button type="button" *ngFor="let name of suggestionsName; let i = index;" (click)="useName(name)">
+      {{ name }}
+    </button>
+
     <br>
     <div *ngIf="searchingCharacter">
       Searching Marvel character

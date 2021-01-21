@@ -5,11 +5,13 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { PlayerSelectorComponent } from './components/player-selector/player-selector.component';
+import { TicTacToeComponent } from './components/tic-tac-toe/tic-tac-toe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlayerSelectorComponent
+    PlayerSelectorComponent,
+    TicTacToeComponent,
   ],
   imports: [
     BrowserModule,

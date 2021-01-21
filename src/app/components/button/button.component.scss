@@ -1,0 +1,23 @@
+@use "sass:color";
+
+$primary-color: #e67e22;
+$primary-color-darker: color.adjust($primary-color, $lightness: -30%);
+
+input {
+  font-family: inherit;
+  font-weight: bold;
+  background-color: $primary-color;
+  font-size: 1em;
+  padding: 0.5em 1.2em;
+  color: $primary-color-darker;
+  border: 1px solid $primary-color-darker;
+  border-radius: 1.2em;
+  border-bottom-width: 4px;
+  cursor: pointer;
+  outline: none;
+}
+
+input:active {
+  margin-top: 3px;
+  border-bottom-width: 1px;
+}

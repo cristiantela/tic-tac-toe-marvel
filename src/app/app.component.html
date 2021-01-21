@@ -10,7 +10,7 @@
 
     <div *ngIf="currentStep === 'gameStarted'">
       <div>
-        <button (click)="resetScores()">Reset Scores</button>
+        <app-button (click)="resetScores()" value="Reset Scores"></app-button>
       </div>
 
       <div class="players">

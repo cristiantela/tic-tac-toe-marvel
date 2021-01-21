@@ -1,7 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
-* {
+:host {
   font-family: 'Ubuntu', sans-serif;
+}
+
+.app {
+  background-color:#ecf0f1;
+  min-height: 100vh;
+}
+
+.app > .container {
+  padding: 12px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.logo {
+  text-align: center;
 }
 
 .players {

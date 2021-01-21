@@ -1,0 +1,12 @@
+.players {
+  display: flex;
+}
+
+.players .player {
+  display: flex;
+  align-items: center;
+}
+
+.players .player img {
+  display: block;
+}

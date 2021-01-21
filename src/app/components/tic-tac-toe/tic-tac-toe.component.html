@@ -1,0 +1,7 @@
+<div>
+  <div class="row" *ngFor="let row of grid; let y = index;">
+    <div class="block" *ngFor="let column of row; let x = index;" (click)="drawInBlock(y, x)" [class.drawn]="column">
+      {{ column ? column.symbol : null }}
+    </div>
+  </div>
+</div>

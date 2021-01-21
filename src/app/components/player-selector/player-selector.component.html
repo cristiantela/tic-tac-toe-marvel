@@ -1,0 +1,30 @@
+<div>
+  <div *ngFor="let player of players; let i = index;">
+    <b>Player {{ i + 1 }}</b>
+    <br>
+    <img src="{{ player.picture }}" alt="{{ player.name }}" title="{{ player.name }}" height="50">
+    <br>
+    {{ player.name }}
+  </div>
+  
+  <form (submit)="savePlayer()">
+    Player {{ players.length + 1 }}
+    <br>
+    Name:
+    <input
+      type="text"
+      name="name"
+      [(ngModel)]="name"
+    >
+    <br>
+    <div *ngIf="searchingCharacter">
+      Searching Marvel character
+    </div>
+
+    <div *ngIf="errorCharacter">
+      {{ errorCharacter }}
+    </div>
+
+    <input type="submit" value="Save" [disabled]="searchingCharacter">
+  </form>
+</div>
